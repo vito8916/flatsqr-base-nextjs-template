@@ -1,36 +1,177 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FLATSQR Base Next.js Template
 
-## Getting Started
+A production-ready Next.js 16 template for starting new projects fast. Clone, customize two files, and ship.
 
-First, run the development server:
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/flatsqr/flatsqr-base-nextjs-template my-project
+cd my-project
+pnpm install
+cp .env.example .env.local
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to customize
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Site identity
 
-## Learn More
+Edit `lib/config/site.ts`:
 
-To learn more about Next.js, take a look at the following resources:
+```ts
+export const siteConfig = {
+  name: "My Product",
+  shortName: "MP",
+  description: "What my product does.",
+  url: "https://myproduct.com",
+  ogImage: "/og.png",
+  links: {
+    twitter: "https://twitter.com/myhandle",
+    github: "https://github.com/myorg",
+  },
+  // ...
+};
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Landing page copy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Edit `lib/config/marketing.ts` to change every visible string on the landing page — nav links, hero headline, feature cards, testimonials, FAQ, footer — without touching component files.
 
-## Deploy on Vercel
+### 3. Environment variables
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Copy `.env.example` to `.env.local` and fill in the values you need:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Canonical domain used for SEO and sitemap |
+| `NEXT_PUBLIC_GA_ID` | Google Analytics 4 Measurement ID (`G-XXXXXXXXXX`) |
+| `NEXT_PUBLIC_VERCEL_ANALYTICS` | Set to `"true"` to enable Vercel Analytics |
+| `NEXT_PUBLIC_FB_PIXEL_ID` | Facebook Pixel numeric ID |
+
+Analytics providers activate automatically when their variable is present. None are enabled by default.
+
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16.2 (App Router) |
+| UI | React 19, shadcn/ui on Base UI |
+| Styling | Tailwind CSS 4 |
+| Forms | react-hook-form + zod |
+| Animations | motion/react |
+| Dark mode | next-themes |
+| Toasts | sonner |
+| Icons | lucide-react |
+| Charts | recharts |
+| Tables | @tanstack/react-table |
+| Dates | date-fns |
+
+## Folder structure
+
+```
+app/                    # Next.js App Router
+  layout.tsx            # Root layout with providers and global metadata
+  page.tsx              # Home (landing page)
+  robots.ts             # robots.txt
+  sitemap.ts            # sitemap.xml
+
+components/
+  marketing/            # Landing page sections
+  shared/               # Cross-app components (ThemeProvider, LinkButton)
+  ui/                   # shadcn/ui component library
+
+lib/
+  config/
+    site.ts             # Site identity, domain, analytics config
+    marketing.ts        # All landing page copy and data
+  analytics/
+    index.tsx           # AnalyticsProvider (mounts active providers)
+    providers/          # google.tsx, vercel.tsx, facebook.tsx
+  seo/
+    metadata.ts         # createMetadata() helper for per-page metadata
+  env.ts                # Zod-validated environment variables
+  utils.ts              # cn() utility
+  validations/
+    contact.ts          # Zod schema for contact form
+
+hooks/
+  use-mobile.ts         # Mobile breakpoint detection
+
+public/
+  og.png                # Default Open Graph image (replace with your own)
+```
+
+## SEO
+
+Global metadata is set in `app/layout.tsx` from `siteConfig`. For per-page metadata:
+
+```ts
+// app/about/page.tsx
+import { createMetadata } from "@/lib/seo/metadata";
+
+export const metadata = createMetadata({
+  title: "About",
+  description: "About our team.",
+  path: "/about",
+});
+```
+
+## Adding optional modules
+
+The core template has no database, auth or BaaS dependencies. Add what you need:
+
+### Database (Prisma)
+
+```bash
+pnpm add prisma @prisma/client
+npx prisma init
+```
+
+Create `lib/db.ts` as a Prisma client singleton. See [Prisma docs](https://www.prisma.io/docs/getting-started).
+
+### Database (Drizzle)
+
+```bash
+pnpm add drizzle-orm drizzle-kit
+```
+
+Create `lib/db/` with your schema and client. See [Drizzle docs](https://orm.drizzle.team/docs/get-started).
+
+### Auth (Better Auth)
+
+```bash
+pnpm add better-auth
+```
+
+Create `lib/auth.ts` and `app/api/auth/[...all]/route.ts`. See [Better Auth docs](https://www.better-auth.com/docs).
+
+### BaaS (Supabase)
+
+```bash
+pnpm add @supabase/supabase-js
+```
+
+Create `lib/supabase/client.ts` and `lib/supabase/server.ts`. Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` to `.env.local`.
+
+### Vercel Analytics
+
+```bash
+pnpm add @vercel/analytics
+```
+
+Uncomment the import in `lib/analytics/providers/vercel.tsx` and set `NEXT_PUBLIC_VERCEL_ANALYTICS=true` in `.env.local`.
+
+## Scripts
+
+```bash
+pnpm dev      # Start development server (Turbopack)
+pnpm build    # Production build
+pnpm start    # Start production server
+pnpm lint     # Run ESLint
+```
+
+## License
+
+MIT

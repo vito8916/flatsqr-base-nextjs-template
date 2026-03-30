@@ -1,12 +1,29 @@
-
-import { BugReportForm } from "@/components/bug-form";
+import { Hero } from "@/components/marketing/hero";
+import { ValueProposition } from "@/components/marketing/value-proposition";
+import { Features } from "@/components/marketing/features";
+import { Benefits } from "@/components/marketing/benefits";
+import { SocialProof } from "@/components/marketing/social-proof";
+import { CtaSection } from "@/components/marketing/cta-section";
+import { Faq } from "@/components/marketing/faq";
+import { ContactForm } from "@/components/marketing/contact-form";
+import { Footer } from "@/components/marketing/footer";
+import { Navbar2 } from "@/components/marketing/navbar2";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <BugReportForm />
+    <>
+      <Navbar2 />
+      <main>
+        <Hero />
+        <ValueProposition />
+        <Features />
+        <Benefits />
+        <SocialProof />
+        <CtaSection />
+        <Faq />
+        <ContactForm />
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }
