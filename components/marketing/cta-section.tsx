@@ -1,28 +1,28 @@
 import { ctaConfig } from "@/lib/config/marketing";
-import LinkButton from "@/components/shared/link-button";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function CtaSection() {
   return (
-    <section className="py-20 md:py-28 bg-primary text-primary-foreground">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4">
-          {ctaConfig.title}
-        </h2>
-        <p className="text-primary-foreground/70 max-w-md mx-auto mb-8 leading-relaxed">
-          {ctaConfig.description}
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <LinkButton href={ctaConfig.primaryCta.href} variant="secondary" size="lg">
-            {ctaConfig.primaryCta.label}
-          </LinkButton>
-          <LinkButton
-            href={ctaConfig.secondaryCta.href}
-            variant="ghost"
+    <section className="py-20 md:py-28">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="rounded-2xl bg-foreground text-background p-10 md:p-16 text-center">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-4 text-balance">
+            {ctaConfig.title}
+          </h2>
+          <p className="text-background/70 max-w-lg mx-auto mb-8 leading-relaxed text-pretty">
+            {ctaConfig.description}
+          </p>
+          <Button
+            asChild
             size="lg"
-            className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            variant="secondary"
+            className="rounded-lg px-8 bg-background text-foreground hover:bg-background/90"
           >
-            {ctaConfig.secondaryCta.label}
-          </LinkButton>
+            <Link href={ctaConfig.primaryCta.href}>
+              {ctaConfig.primaryCta.label}
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

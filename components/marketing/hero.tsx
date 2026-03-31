@@ -3,9 +3,10 @@
 import { motion } from "motion/react";
 import { heroConfig } from "@/lib/config/marketing";
 import LinkButton from "@/components/shared/link-button";
+import { Users } from "lucide-react";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 20 },
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
@@ -15,27 +16,17 @@ const fadeUp = {
 
 export function Hero() {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-[calc(100svh-3.5rem)] pt-20 pb-16 overflow-hidden">
-      {/* Subtle dot-grid background */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-40 dark:opacity-20"
-        aria-hidden
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, oklch(0.556 0 0 / 0.35) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-
+    <section className="relative flex flex-col items-center justify-center pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center gap-6">
-        {/* Badge */}
+        {/* Social Proof Badge */}
         <motion.div
           custom={0}
           initial="hidden"
           animate="visible"
           variants={fadeUp}
         >
-          <span className="inline-flex items-center rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-muted-foreground">
+            <Users className="size-4" />
             {heroConfig.badge}
           </span>
         </motion.div>
@@ -46,10 +37,10 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.08] max-w-4xl"
+          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] max-w-4xl text-balance"
         >
           {heroConfig.headline}{" "}
-          <span className="italic font-normal">
+          <span className="italic font-normal text-muted-foreground">
             {heroConfig.headlineHighlight}
           </span>
         </motion.h1>
@@ -60,7 +51,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
+          className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed text-pretty"
         >
           {heroConfig.subheadline}
         </motion.p>
@@ -71,61 +62,49 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="flex flex-col sm:flex-row items-center gap-3"
+          className="flex flex-col sm:flex-row items-center gap-3 mt-2"
         >
           <LinkButton
             href={heroConfig.primaryCta.href}
             variant="default"
             size="lg"
+            className="rounded-lg px-6"
           >
             {heroConfig.primaryCta.label}
           </LinkButton>
           <LinkButton
-            type="anchor"
             href={heroConfig.secondaryCta.href}
             variant="outline"
             size="lg"
-            target="_blank"
+            className="rounded-lg px-6"
           >
             {heroConfig.secondaryCta.label}
           </LinkButton>
         </motion.div>
 
-        {/* Geometric visual */}
+        {/* Hero Visual */}
         <motion.div
-          custom={0.45}
+          custom={0.4}
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="mt-8 w-full max-w-3xl"
+          className="mt-12 w-full max-w-4xl"
         >
-          <VisualPlaceholder />
+          <div className="relative aspect-video rounded-xl border border-border bg-card overflow-hidden shadow-sm">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-muted-foreground/40 text-sm">
+                Product Preview
+              </div>
+            </div>
+            {/* Simulated UI elements */}
+            <div className="absolute top-0 left-0 right-0 h-10 border-b border-border bg-muted/30 flex items-center px-4 gap-2">
+              <div className="size-2.5 rounded-full bg-border" />
+              <div className="size-2.5 rounded-full bg-border" />
+              <div className="size-2.5 rounded-full bg-border" />
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
-  );
-}
-
-function VisualPlaceholder() {
-  return (
-    <>
-      {/* Visual Placeholder */}
-      <div className="w-full aspect-video border border-white/10 bg-zinc-950 flex items-center justify-center relative group">
-        {/* Simulated Terminal / Code Interface */}
-        <div className="absolute top-0 left-0 w-full h-8 border-b border-white/10 flex items-center px-4 gap-2">
-          <div className="w-2 h-2 bg-white/20"></div>
-          <div className="w-2 h-2 bg-white/20"></div>
-          <div className="w-2 h-2 bg-white/20"></div>
-          <div className="ml-4 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-            system_architecture.ts
-          </div>
-        </div>
-        <div className="font-mono text-sm text-primary-foreground flex items-center gap-2 dark:text-white">
-          <span className="opacity-50">&gt;</span>
-          <span>Initializing Flatsqr Base Next.js Template...</span>
-          <span className="w-2 h-4 bg-primary-foreground animate-pulse"></span>
-        </div>
-      </div>
-    </>
   );
 }

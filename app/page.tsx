@@ -1,11 +1,14 @@
 import { Hero } from "@/components/marketing/hero";
-import { ValueProposition } from "@/components/marketing/value-proposition";
+import { LogoCloud } from "@/components/marketing/logo-cloud";
 import { Features } from "@/components/marketing/features";
-import { Benefits } from "@/components/marketing/benefits";
+import { Stats } from "@/components/marketing/stats";
+import { HowItWorks } from "@/components/marketing/how-it-works";
+import { WhyChooseUs } from "@/components/marketing/why-choose-us";
+import { Integrations } from "@/components/marketing/integrations";
 import { SocialProof } from "@/components/marketing/social-proof";
-import { CtaSection } from "@/components/marketing/cta-section";
+import { Pricing } from "@/components/marketing/pricing";
 import { Faq } from "@/components/marketing/faq";
-import { ContactForm } from "@/components/marketing/contact-form";
+import { CtaSection } from "@/components/marketing/cta-section";
 import { Footer } from "@/components/marketing/footer";
 import { Navbar2 } from "@/components/marketing/navbar2";
 
@@ -15,13 +18,16 @@ export default function Home() {
       <Navbar2 />
       <main>
         <Hero />
-        <ValueProposition />
+        <LogoCloud />
         <Features />
-        <Benefits />
+        <Stats />
+        <HowItWorks />
+        <WhyChooseUs />
+        <Integrations />
         <SocialProof />
-        <CtaSection />
+        <Pricing />
         <Faq />
-        <ContactForm />
+        <CtaSection />
       </main>
       <Footer />
     </>
