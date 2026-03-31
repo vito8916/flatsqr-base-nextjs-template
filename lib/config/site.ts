@@ -1,13 +1,13 @@
 export const siteConfig = {
-  name: "FLATSQR Template",
-  shortName: "FLATSQR",
+  name: "Acme - Build faster, ship smarter",
+  shortName: "Acme",
   description:
-    "A production-ready Next.js base template. Clone, customize, and ship fast.",
+    "The modern platform that helps teams move from idea to launch in record time. No complexity, just results.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   ogImage: "/og.png",
   links: {
-    twitter: "https://twitter.com/flatsqr",
-    github: "https://github.com/flatsqr",
+    twitter: "https://twitter.com/acme",
+    github: "https://github.com/acme",
   },
   analytics: {
     googleId: process.env.NEXT_PUBLIC_GA_ID,

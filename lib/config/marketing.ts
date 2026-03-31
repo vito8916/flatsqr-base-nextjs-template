@@ -7,228 +7,333 @@ import {
   Palette,
   Search,
   Zap,
+  Shield,
+  Users,
+  TrendingUp,
+  Clock,
 } from "lucide-react";
 
 export const navConfig = {
   links: [
     { label: "Features", href: "#features" },
-    { label: "Benefits", href: "#benefits" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#contact" },
+    { label: "How It Works", href: "#how-it-works" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Reviews", href: "#reviews" },
+    { label: "FAQs", href: "#faq" },
   ],
-  cta: { label: "Get started", href: "#contact" },
+  cta: { label: "Get Started", href: "#pricing" },
 };
 
 export const heroConfig = {
-  badge: "Production-ready from day zero",
-  headline: "Stop rebuilding the same base.",
-  headlineHighlight: "Ship what matters.",
+  badge: "Trusted by 200+ Customers",
+  headline: "Build faster.",
+  headlineHighlight: "Ship smarter.",
   subheadline:
-    "A Next.js 16 template with landing page, SEO, forms, dark mode and config-driven content — ready to clone and customize.",
-  primaryCta: { label: "Get started", href: "#contact" },
-  secondaryCta: { label: "View on GitHub", href: "https://github.com/flatsqr" },
+    "The modern platform that helps teams move from idea to launch in record time. No complexity, just results.",
+  primaryCta: { label: "Get Started", href: "#pricing" },
+  secondaryCta: { label: "Watch Demo", href: "#" },
 };
 
-export const valuePropConfig = {
-  title: "Everything in one clone",
-  description:
-    "Stop wasting hours configuring dependencies and patterns you've already built before. FLATSQR Template gives you a production baseline that's ready to rebrand in minutes.",
-  stats: [
-    { value: "16+", label: "shadcn/ui components" },
-    { value: "4 phases", label: "structured implementation" },
-    { value: "0", label: "boilerplate to write" },
-    { value: "1 config", label: "to rebrand everything" },
+export const logoCloudConfig = {
+  title: "Trusted by innovative companies worldwide",
+  logos: [
+    { name: "Acme", text: "ACME" },
+    { name: "Quantum", text: "QUANTUM" },
+    { name: "Pulse", text: "PULSE" },
+    { name: "Echo", text: "ECHO" },
+    { name: "Nova", text: "NOVA" },
   ],
 };
 
 export const featuresConfig = {
-  title: "Built for real products",
+  title: "Features",
   description:
-    "Every feature was chosen because it shows up in every serious project. Nothing experimental, nothing optional unless it should be.",
+    "Everything you need to build, launch, and scale your product. Designed with simplicity at its core.",
   items: [
     {
       icon: LayoutTemplate,
-      title: "Full landing page",
+      title: "Intuitive Interface",
       description:
-        "Navbar, hero, features, testimonials, FAQ, contact form and footer. Clean, modern and easy to rebrand.",
-    },
-    {
-      icon: Search,
-      title: "SEO-ready from the start",
-      description:
-        "Metadata API, Open Graph, Twitter cards, sitemap.ts and robots.ts all wired up and config-driven.",
-    },
-    {
-      icon: Palette,
-      title: "Dark mode & theming",
-      description:
-        "next-themes with system preference detection. Tailwind CSS 4 with a full design token system.",
-    },
-    {
-      icon: FileJson,
-      title: "Forms & validation",
-      description:
-        "react-hook-form, zod and @hookform/resolvers. Patterns are established — just add your schema.",
-    },
-    {
-      icon: Code2,
-      title: "Config-driven content",
-      description:
-        "All copy, links and metadata live in two files. Edit once, update everywhere.",
-    },
-    {
-      icon: Globe,
-      title: "Analytics adapters",
-      description:
-        "Google Analytics, Vercel Analytics and Facebook Pixel — activated by environment variable, never hardcoded.",
-    },
-    {
-      icon: Blocks,
-      title: "Composable architecture",
-      description:
-        "lib/, components/marketing/, components/shared/ and components/ui/ with clear separation of concerns.",
+        "Clean, modern design that your team will love. No learning curve, just productivity from day one.",
+      size: "large",
     },
     {
       icon: Zap,
-      title: "Optimized by default",
+      title: "Lightning Fast",
       description:
-        "Turbopack, cacheComponents, Next.js 16 async APIs and React 19 — no performance debt on day one.",
+        "Built for speed. Experience instant loading and real-time collaboration without the wait.",
+      size: "large",
+    },
+    {
+      icon: Shield,
+      title: "Enterprise Security",
+      description:
+        "Bank-grade encryption and compliance. Your data is safe with us.",
+      size: "small",
+    },
+    {
+      icon: Globe,
+      title: "Global Scale",
+      description:
+        "Deploy anywhere. Our infrastructure scales automatically to meet your needs.",
+      size: "small",
     },
   ],
 };
 
-export const benefitsConfig = {
-  title: "From clone to customized in minutes",
+export const statsConfig = {
+  title: "Data speaks louder than marketing",
   description:
-    "Every decision in this template was made so you can undo it in one file, not across twenty.",
+    "Real numbers from real customers. See the impact on their business.",
+  items: [
+    { value: "55%", label: "Faster deployment", description: "Average time saved" },
+    { value: "55%", label: "Cost reduction", description: "Infrastructure savings" },
+    { value: "55%", label: "Team efficiency", description: "Productivity increase" },
+    { value: "55%", label: "User satisfaction", description: "NPS improvement" },
+  ],
+};
+
+export const howItWorksConfig = {
+  title: "How It Works",
+  description:
+    "Break down your process into simple steps. People don&apos;t buy what they don&apos;t understand.",
+  steps: [
+    {
+      number: "01",
+      title: "Sign Up",
+      description:
+        "Create your account in seconds. No credit card required to get started.",
+    },
+    {
+      number: "02",
+      title: "Configure",
+      description:
+        "Set up your workspace with our guided onboarding. Import your existing data seamlessly.",
+    },
+    {
+      number: "03",
+      title: "Launch",
+      description:
+        "Go live with confidence. Our team is here to support you every step of the way.",
+    },
+  ],
+};
+
+export const whyChooseUsConfig = {
+  title: "Why Choose Us",
+  description: "Make your strengths obvious. Here&apos;s what sets us apart.",
   items: [
     {
-      title: "One place for copy",
-      description:
-        "lib/config/marketing.ts controls every visible string on the landing page. Rebrand without grep.",
+      icon: Shield,
+      title: "Reliability",
+      description: "99.9% uptime guaranteed with 24/7 monitoring.",
     },
     {
-      title: "One place for site identity",
-      description:
-        "lib/config/site.ts holds your domain, OG image, social links and analytics configuration.",
+      icon: Users,
+      title: "Support",
+      description: "Real humans, real help. Average response time under 2 hours.",
     },
     {
-      title: "Optional modules stay optional",
-      description:
-        "No ORM, no auth, no BaaS installed by default. Add Prisma, Better Auth or Supabase when you need them.",
+      icon: TrendingUp,
+      title: "Growth",
+      description: "Built to scale with your business. No limits, no surprises.",
     },
     {
-      title: "AI agent friendly",
-      description:
-        "Conventions and architecture are documented so an AI code agent can continue the work without guessing.",
+      icon: Clock,
+      title: "Speed",
+      description: "Ship features faster. Our tools are designed for velocity.",
     },
+  ],
+};
+
+export const integrationsConfig = {
+  title: "Integrations",
+  description: "It plays nice with your stack. Works with the tools you already use.",
+  logos: [
+    { name: "Slack", text: "SLACK" },
+    { name: "Notion", text: "NOTION" },
+    { name: "Figma", text: "FIGMA" },
+    { name: "GitHub", text: "GITHUB" },
+    { name: "Linear", text: "LINEAR" },
   ],
 };
 
 export const socialProofConfig = {
-  title: "Trusted by builders",
-  description: "Replace these with real testimonials from your users.",
+  title: "Reviews",
+  description: "Users can sell your product better than you. Hear what they have to say.",
   testimonials: [
     {
       quote:
-        "Saved us two days of setup on our last project. The config-driven approach is exactly what we needed.",
-      name: "Sofia Martínez",
-      role: "Lead Engineer",
-      company: "Acme Corp",
-      avatar: null,
+        "This platform transformed how our team works. We shipped 3x faster in the first month alone.",
+      name: "Sarah Chen",
+      role: "CTO",
+      company: "TechFlow",
+      country: "United States",
+      rating: 5,
     },
     {
       quote:
-        "The SEO layer is production-grade out of the box. We just swapped the copy and shipped.",
-      name: "Carlos Reyes",
+        "Finally, a tool that just works. No bloat, no complexity. Pure productivity.",
+      name: "Marcus Weber",
       role: "Founder",
-      company: "Buildfast",
-      avatar: null,
+      company: "BuildFast",
+      country: "Germany",
+      rating: 5,
     },
     {
       quote:
-        "Finally a template that doesn't force Prisma and Auth on you from the start.",
-      name: "Ana López",
-      role: "Full Stack Developer",
-      company: "Indie Studio",
-      avatar: null,
+        "The best investment we made this year. ROI was clear within the first week.",
+      name: "Priya Sharma",
+      role: "Product Lead",
+      company: "ScaleUp",
+      country: "India",
+      rating: 5,
+    },
+    {
+      quote:
+        "Support is incredible. They actually care about helping you succeed.",
+      name: "James Miller",
+      role: "Engineering Manager",
+      company: "Nimbus",
+      country: "Canada",
+      rating: 5,
+    },
+  ],
+};
+
+export const pricingConfig = {
+  title: "Pricing",
+  description: "No one likes surprise costs. Transparent pricing with clear value.",
+  plans: [
+    {
+      name: "Starter",
+      description: "Perfect for trying things out",
+      price: "Free",
+      period: "for 7 days",
+      features: [
+        "Up to 3 team members",
+        "Basic analytics",
+        "Community support",
+        "1GB storage",
+      ],
+      cta: { label: "Start Free Trial", href: "#" },
+      highlighted: false,
+    },
+    {
+      name: "Pro",
+      description: "For growing teams",
+      price: "$69",
+      period: "/month",
+      features: [
+        "Unlimited team members",
+        "Advanced analytics",
+        "Priority support",
+        "100GB storage",
+        "Custom integrations",
+        "API access",
+      ],
+      cta: { label: "Get Started", href: "#" },
+      highlighted: true,
+    },
+    {
+      name: "Pro+",
+      description: "For larger organizations",
+      price: "$99",
+      period: "/month",
+      features: [
+        "Everything in Pro",
+        "Dedicated support",
+        "Unlimited storage",
+        "Custom contracts",
+        "SLA guarantee",
+        "On-premise option",
+      ],
+      cta: { label: "Contact Sales", href: "#" },
+      highlighted: false,
+    },
+  ],
+};
+
+export const faqConfig = {
+  title: "Frequently Asked Questions",
+  description: "Handle objections before they happen.",
+  items: [
+    {
+      question: "How long does setup take?",
+      answer:
+        "Most teams are up and running within 15 minutes. Our guided onboarding walks you through every step, and our support team is always available to help.",
+    },
+    {
+      question: "Can I import my existing data?",
+      answer:
+        "Yes! We support imports from all major platforms. Our migration tools make the process seamless, and we can assist with complex migrations.",
+    },
+    {
+      question: "What happens after my trial ends?",
+      answer:
+        "You can upgrade to a paid plan or continue with limited features on our free tier. We never delete your data, so you can pick up where you left off anytime.",
+    },
+    {
+      question: "Is my data secure?",
+      answer:
+        "Absolutely. We use bank-grade encryption, conduct regular security audits, and are SOC 2 Type II certified. Your data privacy is our top priority.",
     },
   ],
 };
 
 export const ctaConfig = {
-  title: "Ready to build something real?",
+  title: "Ready to get started?",
   description:
-    "Clone the template, edit two files, and start shipping your product.",
-  primaryCta: { label: "Get started", href: "#contact" },
-  secondaryCta: { label: "Read the docs", href: "#" },
-};
-
-export const faqConfig = {
-  title: "Frequently asked questions",
-  items: [
-    {
-      question: "Can I use this template for commercial projects?",
-      answer:
-        "Yes. The template is MIT-licensed. Use it for any project, personal or commercial.",
-    },
-    {
-      question: "Does this include a database or authentication layer?",
-      answer:
-        "No, and that is intentional. The template is agnostic by default. You can add Prisma, Drizzle, Supabase, Better Auth or any other tool without restructuring the project.",
-    },
-    {
-      question: "Which version of Next.js does this use?",
-      answer:
-        "Next.js 16.2.1 with React 19 and the App Router. All async APIs (params, cookies, headers) are handled correctly.",
-    },
-    {
-      question: "How do I change the site name and branding?",
-      answer:
-        "Edit lib/config/site.ts for site identity and lib/config/marketing.ts for all visible copy on the landing page. No other files need to change.",
-    },
-    {
-      question: "How do I enable Google Analytics or Vercel Analytics?",
-      answer:
-        "Copy .env.example to .env.local, set NEXT_PUBLIC_GA_ID or NEXT_PUBLIC_VERCEL_ANALYTICS=true, and the corresponding provider activates automatically.",
-    },
-    {
-      question: "What UI component library is used?",
-      answer:
-        "shadcn/ui built on Base UI primitives, styled with Tailwind CSS 4 and class-variance-authority. Lucide icons are included.",
-    },
-  ],
+    "Join thousands of teams already building faster. Start your free trial today.",
+  primaryCta: { label: "Start Free Trial", href: "#pricing" },
 };
 
 export const footerConfig = {
   brand: {
-    name: "FLATSQR Template",
-    description: "A production-ready Next.js base for modern products.",
+    name: "Acme",
+    description: "Build faster, ship smarter. The modern platform for modern teams.",
   },
   columns: [
     {
-      title: "Template",
+      title: "Pages",
       links: [
         { label: "Features", href: "#features" },
-        { label: "Benefits", href: "#benefits" },
-        { label: "FAQ", href: "#faq" },
+        { label: "Pricing", href: "#pricing" },
+        { label: "Reviews", href: "#reviews" },
       ],
     },
     {
-      title: "Resources",
+      title: "Contact",
       links: [
-        { label: "Documentation", href: "#" },
-        { label: "GitHub", href: "https://github.com/flatsqr" },
-        { label: "Changelog", href: "#" },
+        { label: "Support", href: "#" },
+        { label: "Sales", href: "#" },
+        { label: "Press", href: "#" },
       ],
     },
     {
-      title: "Company",
+      title: "Social",
       links: [
-        { label: "FLATSQR", href: "https://flatsqr.com" },
-        { label: "Contact", href: "#contact" },
+        { label: "Twitter", href: "#" },
+        { label: "LinkedIn", href: "#" },
+        { label: "GitHub", href: "#" },
       ],
     },
   ],
-  legal: "© 2026 FLATSQR. All rights reserved.",
+  legal: "2026 Company Name. All Rights Reserved.",
+  legalLinks: [
+    { label: "Privacy Policy", href: "#" },
+    { label: "Terms & Conditions", href: "#" },
+  ],
+};
+
+// Keep these for backward compatibility
+export const valuePropConfig = {
+  title: statsConfig.title,
+  description: statsConfig.description,
+  stats: statsConfig.items,
+};
+export const benefitsConfig = {
+  title: whyChooseUsConfig.title,
+  description: whyChooseUsConfig.description,
+  items: whyChooseUsConfig.items,
 };
