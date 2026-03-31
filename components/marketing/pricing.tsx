@@ -1,5 +1,4 @@
 import { pricingConfig } from "@/lib/config/marketing";
-import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -62,17 +61,18 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <Button
-                asChild
-                variant={plan.highlighted ? "default" : "outline"}
+              <Link
+                href={plan.cta.href}
                 className={cn(
-                  "w-full rounded-lg",
-                  plan.highlighted &&
-                    "bg-foreground text-background hover:bg-foreground/90"
+                  "inline-flex items-center justify-center rounded-lg text-sm font-medium transition-all",
+                  "h-9 px-4 py-2 w-full",
+                  plan.highlighted
+                    ? "bg-foreground text-background hover:bg-foreground/90"
+                    : "border border-border bg-background hover:bg-muted text-foreground"
                 )}
               >
-                <Link href={plan.cta.href}>{plan.cta.label}</Link>
-              </Button>
+                {plan.cta.label}
+              </Link>
             </div>
           ))}
         </div>

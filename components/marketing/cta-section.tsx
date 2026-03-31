@@ -1,5 +1,4 @@
 import { ctaConfig } from "@/lib/config/marketing";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export function CtaSection() {
@@ -13,16 +12,12 @@ export function CtaSection() {
           <p className="text-background/70 max-w-lg mx-auto mb-8 leading-relaxed text-pretty">
             {ctaConfig.description}
           </p>
-          <Button
-            asChild
-            size="lg"
-            variant="secondary"
-            className="rounded-lg px-8 bg-background text-foreground hover:bg-background/90"
+          <Link
+            href={ctaConfig.primaryCta.href}
+            className="inline-flex items-center justify-center rounded-lg text-sm font-medium transition-all h-10 px-8 bg-background text-foreground hover:bg-background/90"
           >
-            <Link href={ctaConfig.primaryCta.href}>
-              {ctaConfig.primaryCta.label}
-            </Link>
-          </Button>
+            {ctaConfig.primaryCta.label}
+          </Link>
         </div>
       </div>
     </section>

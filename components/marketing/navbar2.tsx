@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { motion, AnimatePresence } from "motion/react";
 import { ModeToggle } from "@/components/shared/theme-mode-toggle";
 import { navConfig } from "@/lib/config/marketing";
@@ -41,13 +41,16 @@ export function Navbar2() {
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 md:flex">
           <ModeToggle />
-          <Button
-            asChild
-            size="sm"
-            className="bg-foreground text-background hover:bg-foreground/90 rounded-lg px-4"
+          <Link
+            href={navConfig.cta.href}
+            className={buttonVariants({
+              size: "sm",
+              className:
+                "bg-foreground text-background hover:bg-foreground/90 rounded-lg px-4",
+            })}
           >
-            <Link href={navConfig.cta.href}>{navConfig.cta.label}</Link>
-          </Button>
+            {navConfig.cta.label}
+          </Link>
         </div>
 
         {/* Mobile menu toggle */}
@@ -82,12 +85,15 @@ export function Navbar2() {
                 </Link>
               ))}
               <div className="mt-4 flex flex-col gap-3 border-t border-border pt-4">
-                <Button
-                  asChild
-                  className="bg-foreground text-background hover:bg-foreground/90 h-12 w-full rounded-lg"
+                <Link
+                  href={navConfig.cta.href}
+                  className={buttonVariants({
+                    className:
+                      "bg-foreground text-background hover:bg-foreground/90 h-12 w-full rounded-lg",
+                  })}
                 >
-                  <Link href={navConfig.cta.href}>{navConfig.cta.label}</Link>
-                </Button>
+                  {navConfig.cta.label}
+                </Link>
               </div>
             </div>
           </motion.div>
