@@ -26,10 +26,10 @@ export const navConfig = {
 
 export const heroConfig = {
   badge: "Trusted by 200+ Customers",
-  headline: "Build faster.",
-  headlineHighlight: "Ship smarter.",
+  headline: "Stop rebuilding the same base",
+  headlineHighlight: "Ship what matters.",
   subheadline:
-    "The modern platform that helps teams move from idea to launch in record time. No complexity, just results.",
+    "A Next.js 16 template with landing page, SEO, forms, dark mode and config-driven content — ready to clone and customize.",
   primaryCta: { label: "Get Started", href: "#pricing" },
   secondaryCta: { label: "Watch Demo", href: "#" },
 };

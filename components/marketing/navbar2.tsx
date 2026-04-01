@@ -18,7 +18,7 @@ export function Navbar2() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5">
           <div className="flex size-8 items-center justify-center rounded-lg bg-foreground">
-            <span className="text-sm font-bold text-background">A</span>
+            <span className="text-sm font-bold text-background">Fq</span>
           </div>
           <span className="text-base font-semibold tracking-tight text-foreground">
             {siteConfig.shortName}
@@ -44,7 +44,7 @@ export function Navbar2() {
           <Link
             href={navConfig.cta.href}
             className={buttonVariants({
-              size: "sm",
+              size: "lg",
               className:
                 "bg-foreground text-background hover:bg-foreground/90 rounded-lg px-4",
             })}
