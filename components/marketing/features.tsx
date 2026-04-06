@@ -1,28 +1,32 @@
+"use client";
+
 import { featuresConfig } from "@/lib/config/marketing";
 import { cn } from "@/lib/utils";
+import { AnimateIn, Stagger, fadeUp } from "@/components/shared/animate-in";
 
 export function Features() {
   return (
     <section id="features" className="py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <AnimateIn variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
           <h2 className="font-heading text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
             {featuresConfig.title}
           </h2>
           <p className="text-muted-foreground leading-relaxed text-pretty">
             {featuresConfig.description}
           </p>
-        </div>
+        </AnimateIn>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {featuresConfig.items.map((feature, index) => {
+        <Stagger staggerChildren={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {featuresConfig.items.map((feature) => {
             const Icon = feature.icon;
             const isLarge = feature.size === "large";
             return (
-              <div
+              <AnimateIn
                 key={feature.title}
+                variants={fadeUp}
                 className={cn(
                   "group rounded-xl border border-border bg-card p-6 md:p-8",
                   "transition-all duration-200 hover:shadow-sm hover:border-muted-foreground/20",
@@ -41,10 +45,10 @@ export function Features() {
                     <div className="mt-6 flex-1 min-h-32 rounded-lg bg-muted/50 border border-border" />
                   )}
                 </div>
-              </div>
+              </AnimateIn>
             );
           })}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

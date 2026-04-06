@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import { AnimateIn, fadeLeft, fadeUp } from "@/components/shared/animate-in";
 
 export function Faq() {
   return (
@@ -14,7 +15,7 @@ export function Faq() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Header */}
-          <div className="lg:sticky lg:top-28">
+          <AnimateIn variants={fadeLeft} className="lg:sticky lg:top-28">
             <h2 className="font-heading text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
               {faqConfig.title}
             </h2>
@@ -22,10 +23,10 @@ export function Faq() {
               Handle objections before they happen. Use FAQs to answer the silent
               doubts holding people back.
             </p>
-          </div>
+          </AnimateIn>
 
           {/* Accordion */}
-          <div>
+          <AnimateIn variants={fadeUp}>
             <Accordion>
               {faqConfig.items.map((item, i) => (
                 <AccordionItem key={i} value={String(i)}>
@@ -38,7 +39,7 @@ export function Faq() {
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
+          </AnimateIn>
         </div>
       </div>
     </section>

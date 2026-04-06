@@ -1,5 +1,8 @@
+"use client";
+
 import { socialProofConfig } from "@/lib/config/marketing";
 import { Star } from "lucide-react";
+import { AnimateIn, Stagger, fadeUp } from "@/components/shared/animate-in";
 
 function getInitials(name: string): string {
   return name
@@ -15,23 +18,23 @@ export function SocialProof() {
     <section id="reviews" className="py-20 md:py-28 border-y border-border bg-muted/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <AnimateIn variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
           <h2 className="font-heading text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
             {socialProofConfig.title}
           </h2>
           <p className="text-muted-foreground leading-relaxed">
             {socialProofConfig.description}
           </p>
-        </div>
+        </AnimateIn>
 
         {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <Stagger staggerChildren={0.1} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {socialProofConfig.testimonials.map((t) => (
-            <figure
+            <AnimateIn
               key={t.name}
+              variants={fadeUp}
               className="rounded-xl border border-border bg-card p-6 flex flex-col gap-4"
             >
-              {/* Rating */}
               <div className="flex gap-1">
                 {Array.from({ length: t.rating }).map((_, i) => (
                   <Star
@@ -44,7 +47,6 @@ export function SocialProof() {
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
               <figcaption className="flex items-center gap-3 pt-2 border-t border-border">
-                {/* Avatar fallback */}
                 <div className="size-9 rounded-full bg-muted border border-border flex items-center justify-center shrink-0">
                   <span className="text-xs font-medium text-muted-foreground">
                     {getInitials(t.name)}
@@ -55,9 +57,9 @@ export function SocialProof() {
                   <p className="text-xs text-muted-foreground">{t.country}</p>
                 </div>
               </figcaption>
-            </figure>
+            </AnimateIn>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

@@ -1,31 +1,35 @@
+"use client";
+
 import { pricingConfig } from "@/lib/config/marketing";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { AnimateIn, Stagger, fadeUp } from "@/components/shared/animate-in";
 
 export function Pricing() {
   return (
     <section id="pricing" className="py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <AnimateIn variants={fadeUp} className="text-center max-w-2xl mx-auto mb-14">
           <h2 className="font-heading text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
             {pricingConfig.title}
           </h2>
           <p className="text-muted-foreground leading-relaxed">
             {pricingConfig.description}
           </p>
-        </div>
+        </AnimateIn>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Stagger staggerChildren={0.12} className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {pricingConfig.plans.map((plan) => (
-            <div
+            <AnimateIn
               key={plan.name}
+              variants={fadeUp}
               className={cn(
-                "rounded-xl border bg-card p-6 md:p-8 flex flex-col",
+                "rounded-xl border bg-card p-6 md:p-8 flex flex-col relative",
                 plan.highlighted
-                  ? "border-foreground ring-1 ring-foreground relative"
+                  ? "border-foreground ring-1 ring-foreground"
                   : "border-border"
               )}
             >
@@ -73,9 +77,9 @@ export function Pricing() {
               >
                 {plan.cta.label}
               </Link>
-            </div>
+            </AnimateIn>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

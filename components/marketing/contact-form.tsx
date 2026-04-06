@@ -24,7 +24,7 @@ export function ContactForm() {
     // Replace with your actual submission logic (API route, email service, etc.)
     await new Promise((resolve) => setTimeout(resolve, 600));
     toast.success("Message sent", {
-      description: "We'll get back to you as soon as possible.",
+      description: `${_data.name}, we'll get back to you as soon as possible.`,
     });
     reset();
   }
